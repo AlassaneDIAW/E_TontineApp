@@ -265,21 +265,21 @@ app.use((err, req, res, next) => {
 
 // Graceful shutdown
 process.on('SIGTERM', async () => {
-    console.log('🔄 Arrêt gracieux du serveur...');
+    console.log('Arrêt gracieux du serveur...');
     try {
         await pool.end();
-        console.log('✅ Connexions base de données fermées');
+        console.log('Connexions base de données fermées');
         process.exit(0);
     } catch (err) {
-        console.error('❌ Erreur lors de l\'arrêt:', err);
+        console.error('Erreur lors de l\'arrêt:', err);
         process.exit(1);
     }
 });
 
 const PORT = process.env.PORT || 5050;
 app.listen(PORT, () => {
-    console.log(`🚀 Serveur backend démarré sur http://localhost:${PORT}`);
-    console.log(`📊 Environnement: ${process.env.NODE_ENV || 'development'}`);
+    console.log(` Serveur backend démarré sur http://localhost:${PORT}`);
+    console.log(` Environnement: ${process.env.NODE_ENV || 'development'}`);
 });
 
 module.exports = app;
